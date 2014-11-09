@@ -1,0 +1,6 @@
+- if object.errors.any?
+  .alert.alert-danger
+    | 入力エラーが#{object.errors.count}件あります。
+    ul
+    - object.errors.full_messages.each do |msg|
+      li = msg
