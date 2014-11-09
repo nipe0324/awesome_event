@@ -11,6 +11,11 @@ class Event < ActiveRecord::Base
   default_scope -> { order(:start_time) }
   scope :available, -> { where('start_time > :start_time', start_time: Time.zone.now) }
 
+  def created_by?(user)
+    return false unless user
+    owner_id == user.id
+  end
+
   private
 
     def start_time_must_be_before_end_time

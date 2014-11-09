@@ -26,3 +26,6 @@
     | イベント内容
   .panel-body
     = @event.content
+
+- if @event.created_by? current_user
+  = link_to '編集', edit_event_path(@event), class: 'btn btn-success'
