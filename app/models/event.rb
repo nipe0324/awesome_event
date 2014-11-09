@@ -8,6 +8,9 @@ class Event < ActiveRecord::Base
   validates :end_time,   presence: true
   validate  :start_time_must_be_before_end_time
 
+  default_scope -> { order(:start_time) }
+  scope :available, -> { where('start_time > :start_time', start_time: Time.zone.now) }
+
   private
 
     def start_time_must_be_before_end_time
