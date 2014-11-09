@@ -42,3 +42,17 @@ gem 'slim-rails'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
+
+
+group :development do
+  gem 'guard-livereload'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'rails-flog'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
+end
