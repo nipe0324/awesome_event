@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  has_many :tickets
   belongs_to :owner, class_name: 'User'
 
   validates :name,       presence: true, length: { maximum: 50 }
