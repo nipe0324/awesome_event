@@ -2,12 +2,12 @@
   h1 = @event.name
 
 .row
-  .col-md-9
+  .col-md-8
     .panel.panel-default
       .panel-heading
         | 主催者
       .panel-body
-        = link_to "https://twitter.com/#{@event.owner.nickname}" do
+        = link_to url_for_twitter(@event.owner) do
           = image_tag @event.owner.image_url
           = "@#{@event.owner.nickname}"
 
@@ -29,7 +29,7 @@
       .panel-body
         = @event.content
 
-  .col-md-3
+  .col-md-4
     - if @event.created_by? current_user
       = link_to '編集', edit_event_path(@event), class: 'btn btn-success btn-lg btn-block'
       = link_to '削除', event_path(@event), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '削除しますか?' }
@@ -52,3 +52,17 @@
     - else
       = link_to '参加', new_event_ticket_path(@event), class: "btn btn-primary btn-lg btn-block"
     = link_to '戻る', root_path, class: 'btn btn-default btn-lg btn-block'
+
+    hr
+
+    .panel.panel-default
+      .panel-heading
+        | 参加者
+      .panel-body
+        ul.list-unstyled
+          - @tickets.each do |ticket|
+            li
+              = link_to url_for_twitter(ticket.user) do
+                = image_tag ticket.user.image_url, width: 20, height: 20
+                = "@#{ticket.user.nickname}"
+              = ticket.comment
