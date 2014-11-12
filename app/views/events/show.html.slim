@@ -26,6 +26,13 @@
       .panel-body
         = @event.place
 
+    - if @event.event_image?
+      .panel.panel-default
+        .panel-heading
+          | 開催場所
+        .thumbnail
+          = image_tag @event.event_image.url
+
     .panel.panel-default
       .panel-heading
         | イベント内容

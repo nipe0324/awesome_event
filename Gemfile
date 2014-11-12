@@ -47,6 +47,9 @@ gem 'kaminari'
 
 gem 'ransack'
 
+gem 'carrierwave'
+gem 'mini_magick'
+
 group :development do
   gem 'guard-livereload'
   gem 'pry-rails'
