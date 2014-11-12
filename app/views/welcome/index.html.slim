@@ -8,3 +8,5 @@
         | #{event.name} - #{event.place}
       p.list-group-item-text
         | #{event.start_time.strftime('%Y/%m/%d %H:%M')} - #{event.end_time.strftime('%Y/%m/%d %H:%M')}
+
+  = paginate @events

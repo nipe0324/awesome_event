@@ -43,6 +43,7 @@ gem 'slim-rails'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
+gem 'kaminari'
 
 group :development do
   gem 'guard-livereload'
