@@ -45,6 +45,8 @@ gem 'omniauth-twitter'
 
 gem 'kaminari'
 
+gem 'ransack'
+
 group :development do
   gem 'guard-livereload'
   gem 'pry-rails'

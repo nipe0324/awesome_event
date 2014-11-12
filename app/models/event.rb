@@ -10,8 +10,15 @@ class Event < ActiveRecord::Base
   validate  :start_time_must_be_before_end_time
 
   default_scope -> { order(:start_time) }
-  scope :available, -> { where('start_time > :start_time', start_time: Time.zone.now) }
   scope :will_open, -> { where(':now < end_time', now: Time.zone.now) }
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w(name start_time)
+  end
+
+  def self.ransackable_association(auth_object = nil)
+    []
+  end
 
   def created_by?(user)
     return false unless user
